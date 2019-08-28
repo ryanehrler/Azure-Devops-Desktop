@@ -5,7 +5,7 @@ This is an electron app pointed to https://dev.azure.com/.  It uses Electron For
 
 ```bash
 # Clone this repository
-git clone https://Gbli@dev.azure.com/Gbli/IT/_git/AzureDevopsDesktop
+git clone https://github.com/ryanehrler/Azure-Devops-Desktop.git
 # Go into the repository
 cd AzureDevopsDesktop
 # Install dependencies
