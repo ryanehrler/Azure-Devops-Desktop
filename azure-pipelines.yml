@@ -1,0 +1,41 @@
+trigger:
+- master
+
+strategy:
+  maxParallel: 2
+  matrix:
+    mac:
+      imageName: 'macos-10.14'
+    windows:
+      imageName: 'vs2017-win2016'
+
+pool:
+  vmImage: $(imageName)
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+
+- script: |
+    npm install
+
+- script: |
+    npm run make
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/out/make'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(imageName)-$(Build.BuildId).zip'
+    includeRootFolder: false
+
+# Don't think we need this step because the ArchiveFiles step specifies the out directory
+# and we don't care about any other files in this pipeline
+# - task: CopyFiles@2
+#   inputs:
+#     SourceFolder: '$(System.DefaultWorkingDirectory)'
+#     Contents: |
+#       *.zip
+#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1

@@ -1,0 +1,49 @@
+{
+  "name": "azure-devops-desktop",
+  "version": "1.0.2",
+  "description": "Azure Devops on Desktop!",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "Azure Devops"
+  ],
+  "author": "Ryan Ehrler",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.0-beta.39",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.39",
+    "@electron-forge/maker-dmg": "6.0.0-beta.39",
+    "electron": "^5.0.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "name": "Azure Devops Desktop",
+        "icon": "./assets/azure-devops-icon"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "azure_devops_desktop"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "format": "ULFO"
+          }
+        }
+      ]
+    }
+  }
+}
