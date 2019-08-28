@@ -1,5 +1,5 @@
 ## Azure Devops Desktop
-This is an electron app pointed to https://dev.azure.com/Gbli/IT.  It uses Electron Forge to package and create an installer for the application.
+This is an electron app pointed to https://dev.azure.com/.  It uses Electron Forge to package and create an installer for the application.
 
 ## To Use
 
